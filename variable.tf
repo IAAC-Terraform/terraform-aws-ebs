@@ -13,3 +13,7 @@ variable "name" {}
 variable "env" {}
 
 variable "create" {}
+
+variable "instance_id" {
+    type = "list"
+}

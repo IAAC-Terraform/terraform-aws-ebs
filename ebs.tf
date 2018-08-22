@@ -11,3 +11,10 @@ resource "aws_ebs_volume" "ebs" {
         env = "${var.env}"
     }
 }
+
+resource "aws_volume_attachment" "ebs_att" {
+  count = "${var.create ? 1 : 0}"
+  device_name = "/dev/sda"
+  volume_id   = "${element(aws_ebs_volume.ebs.*.id, count.index}"
+  instance_id = "${element(var.instance_id, count.index)}"
+}
