@@ -1,4 +1,6 @@
-variable "availability_zone" {}
+variable "availability_zone" {
+    type = "list"
+}
 variable "kms_key_id" {}
 variable "encrypted" {
     default = "true"
