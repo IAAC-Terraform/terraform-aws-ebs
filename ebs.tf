@@ -5,11 +5,6 @@ resource "aws_ebs_volume" "ebs" {
     kms_key_id = "${var.kms_key_id}"
     size = "${var.size}"
     type = "${var.type}"
-
-    tags {
-        Name = "${var.name}-0${count.index + 1}"
-        env = "${var.env}"
-    }
 }
 
 resource "aws_volume_attachment" "ebs_att" {
